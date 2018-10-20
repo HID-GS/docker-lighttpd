@@ -4,6 +4,7 @@ RUN apk --no-cache add tini lighttpd vim bash \
     && echo 'include_shell "cat /etc/lighttpd/conf.d/*conf 2> /dev/null"' >> /etc/lighttpd/lighttpd.conf \
     && mkdir -p /etc/lighttpd/conf.d \
     && mkdir -p /var/log/lighttpd \
+    && mkdir -p /var/www/html \
     && chown lighttpd /run \
     && ln -sf /dev/stdout /var/log/lighttpd/access.log \
     && ln -sf /dev/stderr /var/log/lighttpd/error.log
