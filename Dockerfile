@@ -6,10 +6,12 @@ RUN apk --no-cache add tini lighttpd vim bash \
     && mkdir -p /var/log/lighttpd \
     && mkdir -p /var/www/html \
     && chown lighttpd /run \
-    && ln -sf /dev/stdout /var/log/lighttpd/access.log \
-    && ln -sf /dev/stderr /var/log/lighttpd/error.log
+    && ln -sf /dev/stderr /var/log/lighttpd/access.log \
+    && ln -sf /dev/stderr /var/log/lighttpd/error.log \
+    && sed -i 's#^server.document-root.*#server.document-root = "/var/www/html"#g' /etc/lighttpd/lighttpd.conf
 
 COPY ./conf/000-base.conf /etc/lighttpd/conf.d/
+COPY ./www/index.html /var/www/html/index.html
 
 USER lighttpd
 
