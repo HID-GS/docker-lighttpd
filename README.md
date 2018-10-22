@@ -1,4 +1,4 @@
-#lighttp base image
+# lighttpd base image
 
 This is a simple lighttpd + alpine image that:
   - Outputs data to stderr / console
