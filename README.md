@@ -36,5 +36,5 @@ At a minimum, `docker run --rm -ti -p 8000:8000 hidgweb/lighttpd` will get your
 container started, then if you visit `http://localhost:8000` you should see 
 something like this:
 
-[screenshot](screenshot-itworks.png)
+![screenshot](screenshot-itworks.png)
 
